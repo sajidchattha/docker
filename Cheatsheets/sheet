@@ -1,0 +1,3 @@
+#Command to check all running containers
+
+docker ps -a
