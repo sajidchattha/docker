@@ -1,15 +1,20 @@
-#Command to check all running containers
+Command to check all running containers
+$ docker ps -a
 
-$$ docker ps -a
-
-#List docker images
-
-$$ docker image ls
+To list docker images
+$ docker image ls
 
 
-#Command to run a container in detached mode, naming it, exposing/mapping its ports to localports and mounting a volume local-containersVolume
+Command to run a container in detached mode, naming it, exposing/mapping its ports to localports and mounting a volume local-containersVolume
 
 Syntax:
-$$ docker run --name <NAME OF CONTAINER> -d -p <LOCALHOST PORT>:<CONTAINER PORT> -v <LOCAL DIR WE WANT TO MOUNT>:<PATH TO DIR OF IMAGE IN CONTAINER>:<PERMISSIONS> IMAGE_NAME:STATUS 
+$ docker run --name <NAME OF CONTAINER> -d -p <LOCALHOST PORT>:<CONTAINER PORT> -v <LOCAL DIR WE WANT TO MOUNT>:<PATH TO DIR OF IMAGE IN CONTAINER>:<PERMISSIONS> IMAGE_NAME:STATUS 
 Example:
-docker run --name basicNginx -d -p 8081:80 -v $(pwd):/usr/share/nginx/html:ro nginx:latest
+$ docker run --name basicNginx -d -p 8081:80 -v $(pwd):/usr/share/nginx/html:ro nginx:latest
+
+
+To stop all the running containers in Docker
+$ docker stop $(docker ps -qa)
+
+To remove a container from list
+$ docker rm <CONTAINER NAME OR ID>
